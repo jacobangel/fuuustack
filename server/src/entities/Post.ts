@@ -24,8 +24,7 @@ export class Post {
   @Property({ type: 'text' })
   content: string;
 
-  @Field()
-  @Property({ type: 'text' })
-  creator: string;
-
+  @Field(() => Number)
+  @Property({ type: 'number', nullable: true })
+  creator: number;
 }
