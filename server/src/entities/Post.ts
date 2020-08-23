@@ -23,4 +23,9 @@ export class Post {
   @Field()
   @Property({ type: 'text' })
   content: string;
+
+  @Field()
+  @Property({ type: 'text' })
+  creator: string;
+
 }

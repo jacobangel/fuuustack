@@ -7,6 +7,7 @@ import { MyContext } from './types';
 import { buildSchema } from "type-graphql";
 import { HelloWorldResolver } from './resolvers/HelloWorldResolver';
 import { PostResolver } from './resolvers/PostResolver';
+import { UserResolver } from './resolvers/UserResolver';
 import { MikroORM } from '@mikro-orm/core';
 import mikroOrmConfig from './mikro-orm.config' 
 
@@ -18,7 +19,7 @@ const main = async () => {
 
   const apolloSever = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [ HelloWorldResolver, PostResolver ],
+      resolvers: [ HelloWorldResolver, PostResolver, UserResolver ],
       validate: false,
     }),
     context: ({ req, res }): MyContext => ({ res, req, em: orm.em })
